@@ -58,8 +58,6 @@ DN <- diffnet(data = A,
               pThr = 1,
               corThr = 0,
               varNames = var_names)
-{
-  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
