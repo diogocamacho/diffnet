@@ -15,11 +15,12 @@ diffnet <- function(data,
   if(missing(correlation_type)) correlation_type <- "spearman"
   if(missing(p_thr)) p_thr <- 0.05
   if(missing(correlation_thr)) correlation_thr <- 0.8
-  if(missing(variable_names) & !is.null(rownames(data))) {
-    variable_names <- rownames(data)
-  } else {
-    variable_names <- seq(1,nrow(data))
-  }
+  # if(missing(variable_names) & !is.null(rownames(data))) {
+  #   variable_names <- rownames(data)
+  # } else {
+  #   variable_names <- seq(1,nrow(data))
+  # }
+  if(missing(variable_names)) stop("Need variable names.")
   if(missing(group1) | missing(group2)) stop("Need group identification.")
 
 

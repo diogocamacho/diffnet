@@ -54,10 +54,10 @@ test <- setdiff(seq(1,ncol(A)),ctr)
 DN <- diffnet(data = A,
               group1 = ctr,
               group2 = test,
-              corType = "spearman",
-              pThr = 1,
-              corThr = 0,
-              varNames = var_names)
+              correlation_type = "spearman",
+              p_thr = 1,
+              correlation_thr = 0,
+              variable_names = var_names)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
