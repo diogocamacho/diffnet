@@ -14,6 +14,13 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+
+load("../data/dataset.rda")
+library(diffnet)
+library(Hmisc)
+library(tidyverse)
+
 ```
 
 # Overview
@@ -27,8 +34,6 @@ For the purpose of this example, I have restricted the data set to the top 1,000
 At the core of `diffnet` is the comparison of network topologies for inferred co-expression networks for 2 different states.  In our toy data set, we have samples collected from tumor sites as well as paired samples from healthy adjacent tissue.  We will separate these two groups as is (no distinction between tumor stages for the purpose of this example.)
 
 ```{r comparison_groups}
-attach(dataset)
-
 A <- dataset[[1]] # <-- gene annotation
 E <- dataset[[2]] # <-- expression data
 S <- dataset[[3]] # <-- sample info
