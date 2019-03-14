@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1527035699727.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2051310095",
+    "id" : "C1F58BEB",
+    "lastKnownWriteTime" : 1527041989,
+    "last_content_update" : 1527041989418,
+    "path" : "/Volumes/HOME/scripts/r/packages/diffnet/vignettes/diffnet.Rmd",
+    "project_path" : "vignettes/diffnet.Rmd",
+    "properties" : {
+        "last_setup_crc32" : "C6EB5EE49990457b"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

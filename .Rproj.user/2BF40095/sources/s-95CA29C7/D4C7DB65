@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552568616545.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D4C7DB65",
+    "lastKnownWriteTime" : 1552569401,
+    "last_content_update" : 1552569401434,
+    "path" : "~/work/R/diffnet/R/difference_test.R",
+    "project_path" : "R/difference_test.R",
+    "properties" : {
+        "cursorPosition" : "27,0",
+        "scrollLine" : "2",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# TOP CONNECTED NODES\n# get the nodes that have highest number of edges\ntop_nodes <- function(diffnet_results,minimum_interactions)\n{\n  if(missing(minimum_interactions)) minimum_interactions <- 5\n\n  tot_genes <- union(diffnet_results$node1,diffnet_results$node2)\n  gene_count <- tot_genes %>%\n    as.matrix %>%\n    apply(1,function(x) length(which(diffnet_results$node1 == x)) + length(which(diffnet_results$node2 == x)))\n\n  # most connected genes\n  tgs <- tot_genes[gene_count >= minimum_interactions]\n  tgs_num <- gene_count[gene_count >= minimum_interactions]\n  conn_genes <- data.frame(gene_name=tgs,\n                           number_edges=tgs_num)\n\n  return(conn_genes)\n}\n",
+    "created" : 1527039892991.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3221261316",
+    "id" : "79ED3AD7",
+    "lastKnownWriteTime" : 1527040842,
+    "last_content_update" : 1527040842722,
+    "path" : "~/Desktop/diffnet/R/top_nodes.R",
+    "project_path" : "R/top_nodes.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

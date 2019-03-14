@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"DiffNet: Differential network analyses for inferred gene co-expression networks\"\nauthor: \"Diogo M. Camacho\"\ndate: \"`r Sys.Date()`\"\noutput: rmarkdown::html_vignette\nvignette: >\n  %\\VignetteIndexEntry{diffnet}\n  %\\VignetteEngine{knitr::rmarkdown}\n  %\\VignetteEncoding{UTF-8}\n---\n\n```{r setup, include = FALSE}\nknitr::opts_chunk$set(\n  collapse = TRUE,\n  comment = \"#>\"\n)\n\n\nload(\"../data/dataset.rda\")\nlibrary(diffnet)\nlibrary(Hmisc)\nlibrary(tidyverse)\n\n```\n\n# Overview\nDifferential network analyses attempts to address the problem of identifying key nodes and edges in a network that are responsible for topological changes between states.  As an example, when presented with a disease state versus a healthy state, differential network analyses can be used to identify key nodes leading to the emergence of the disease state.  Here, I will introduce DiffNet (for Differential Networks) which addresses this problem by inferring co-expression networks based on correlation analyses and computing the network differences based on Fisher's test for correlation.  For the example here, I will be using data from a study of 60 non-smoking women with different stages of non-small cell lung cancer, on which biopsies were collected from both tumor tissue and healthy adjacent tissue.  This data can be downloaded [here](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE19804) and is provided as an example data set in this package.\n\n\n# Data\nFor the purpose of this example, I have restricted the data set to the top 1,000 most variant transcripts.  For a complete view into the data, download the full data set using the `GEOquery` package. \n\n## Groups\nAt the core of `diffnet` is the comparison of network topologies for inferred co-expression networks for 2 different states.  In our toy data set, we have samples collected from tumor sites as well as paired samples from healthy adjacent tissue.  We will separate these two groups as is (no distinction between tumor stages for the purpose of this example.)\n\n```{r comparison_groups}\nA <- dataset[[1]] # <-- gene annotation\nE <- dataset[[2]] # <-- expression data\nS <- dataset[[3]] # <-- sample info\n\ntumor_samples <- grep(\"cancer\",S$characteristics_ch1)\nhealthy_samples <- grep(\"normal\",S$characteristics_ch1)\n```\n\nThis results in a set of `r length(tumor_samples)` tumor samples and `r length(healthy_samples)` normal adjacent tissue samples.  \n\n## Run DiffNet\nWith the selected groups, we can now run `diffnet` on the expression data to compute the network differences between the two groups.\n\n```{r run_diffnet}\nDN <- diffnet(data = E,\n              group1 = healthy_samples,\n              group2 = tumor_samples,\n              correlation_type = \"spearman\",\n              correlation_thr = 0.8,\n              p_thr = 0.05,\n              variable_names = A$symbol)\n```\n\nThe output of `diffnet` is a tidy data frame.  From the results:\n\n```{r example_res}\nDN\n```\n\n\n## Follow up analyses\nIncluded in the package are functions to extract the top nodes and edges, defined as those with the biggest impact in the changes in topology observed.  The functions `top_nodes` and `top_edges` extract the nodes and edges that have the highest impact in changing topology given a set of `diffnet` results.\n\n",
+    "created" : 1527035699727.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2051310095",
+    "id" : "C1F58BEB",
+    "lastKnownWriteTime" : 1527041989,
+    "last_content_update" : 1527041989418,
+    "path" : "~/Desktop/diffnet/vignettes/diffnet.Rmd",
+    "project_path" : "vignettes/diffnet.Rmd",
+    "properties" : {
+        "last_setup_crc32" : "C6EB5EE49990457b"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

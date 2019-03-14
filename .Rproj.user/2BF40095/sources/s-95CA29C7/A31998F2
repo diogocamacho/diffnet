@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552569507353.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A31998F2",
+    "lastKnownWriteTime" : 1552579853,
+    "last_content_update" : 1552579853624,
+    "path" : "~/work/R/diffnet/R/score_changes.R",
+    "project_path" : "R/score_changes.R",
+    "properties" : {
+        "cursorPosition" : "25,0",
+        "scrollLine" : "5",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
