@@ -25,8 +25,8 @@ calculate_correlations <- function(data, group1, group2, method) {
     corrr::shave(upper = TRUE) %>%
     corrr::stretch()
 
-  correlations <- tibble(x = r1$x,
-                         y = r1$y,
+  correlations <- tibble(x = as.numeric(r1$x),
+                         y = as.numeric(r1$y),
                          cor1 = r1$r,
                          cor2 = r2$r)
 

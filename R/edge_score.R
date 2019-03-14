@@ -9,11 +9,12 @@ edge_score <- function(scores_df, test_df) {
   if(missing(scores_df)) stop("Need difference scores data frame.")
   if(missing(test_df)) stop("Need test statistic scores.")
 
-  res <- tibble::tibble(x = scores_df$x,
-                        y = scores_df$y,
+  res <- tibble::tibble(x = as.numeric(scores_df$x),
+                        y = as.numeric(scores_df$y),
                         cor1 = test_df$cor1,
                         cor2 = test_df$cor2,
                         edge_score = scores_df$score,
+                        change_type = scores_df$definition,
                         p_val = test_df$diff_p)
 
   res <- res %>%
