@@ -17,7 +17,7 @@ edge_score <- function(scores_df, test_df) {
                         p_val = test_df$diff_p)
 
   res <- res %>%
-    dplyr::mutate(., p_val = replace(p_val, p_val == 0, min(p_val[pval != 0]) / 10)) %>%
+    dplyr::mutate(., p_val = replace(p_val, p_val == 0, min(p_val[p_val != 0]) / 10)) %>%
     dplyr::mutate(., log10_p = -log10(p_val)) %>%
     dplyr::mutate(., total_score = abs(cor1) + abs(cor2) + edge_score + log10_p) %>%
     dplyr::filter(., edge_score != 0) %>%
