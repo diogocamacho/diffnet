@@ -20,10 +20,14 @@ calculate_correlations <- function(data, group1, group2, method) {
   # calculate correlations
   r1 <- corrr::correlate(t(data[, group1]), method = method, quiet = TRUE) %>%
     corrr::shave(upper = TRUE) %>%
-    corrr::stretch()
+    corrr::stretch() %>% 
+    dplyr::mutate(., x = as.numeric(gsub(pattern = "V", "", x))) %>% 
+    dplyr::mutate(., y = as.numeric(gsub(pattern = "V", "", y))) 
   r2 <- corrr::correlate(t(data[, group2]), method = method, quiet = TRUE) %>%
     corrr::shave(upper = TRUE) %>%
-    corrr::stretch()
+    corrr::stretch() %>% 
+    dplyr::mutate(., x = as.numeric(gsub(pattern = "V", "", x))) %>% 
+    dplyr::mutate(., y = as.numeric(gsub(pattern = "V", "", y)))
 
   correlations <- tibble(x = as.numeric(r1$x),
                          y = as.numeric(r1$y),
