@@ -1,7 +1,7 @@
 Package: diffnet
 Type: Package
 Title: Differential network analyses
-Version: 1.0.2
+Version: 0.1.0
 Author: Diogo M. Camacho
 Maintainer: Diogo M. Camacho <diogo.camacho@wyss.harvard.edu>
 Description: diffnet will infer a network for two given groups based on correlation and compute the differences in topology between the inferred networks based on Fisher's correlation test.
